@@ -7,25 +7,38 @@ Public Class Form3
         Me.CenterToScreen()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
         If TextBox1.Text = "" Then
-            MessageBox.Show("请输入正确的用户名！", "用户名不可用", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning)
+            Label4.Visible = 1
+            Return
+        End If
+
+        If TextBox2.Text = "" Then
+            Label5.Visible = 1
+            Return
+        End If
+        connection = New SqlConnection
+        connection.ConnectionString = "server=(local);database=helloworld;integrated security = true"
+        connection.Open()
+        cmd = New SqlCommand("SELECT password FROM Docter WHERE D_ID = " + "'" + Trim(TextBox1.Text) + "'")
+        cmd.Connection = connection
+        'when it's null ExecuteScalar() will return Nothing
+        If cmd.ExecuteScalar() = Nothing Then
+            Dim dalg As DialogResult = MessageBox.Show("请检查用户名", "用户名异常", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+            If dalg = Windows.Forms.DialogResult.Retry Then
+                TextBox1.Text = ""
+            End If
         Else
-            connection = New SqlConnection
-            connection.ConnectionString = "server=(local);database=helloworld;integrated security = true"
-            connection.Open()
-            cmd = New SqlCommand("SELECT password FROM Docter WHERE D_ID = " + Trim(TextBox1.Text))
-            cmd.Connection = connection
-            Dim pass = Str(cmd.ExecuteScalar())
-            If pass.Equals(Str(TextBox2.Text)) Then
-                MessageBox.Show("登录成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If Str(cmd.ExecuteScalar()) = Str(TextBox2.Text) Then
+                MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Hide()
+                Form4.Show()
                 connection.Close()
                 connection.Dispose()
-                Form2.Show()
-                Me.Close()
             Else
-                MessageBox.Show("密码错误!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Dim adlg As DialogResult = MessageBox.Show("密码错误", "Error!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+                If adlg = DialogResult.Retry Then
+                    TextBox2.Text = ""
+                End If
             End If
         End If
     End Sub

@@ -51,7 +51,10 @@ Public Class Form1
                 connection.Close()
                 connection.Dispose()
             Else
-                MessageBox.Show("密码错误", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Dim adlg As DialogResult = MessageBox.Show("密码错误", "Error!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+                If adlg = DialogResult.Retry Then
+                    TextBox2.Text = ""
+                End If
             End If
         End If
     End Sub
@@ -69,7 +72,7 @@ Public Class Form1
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
+        MessageBox.Show("请联系管理员解决", "忘记密码？", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
     End Sub
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
         Form3.Show()
