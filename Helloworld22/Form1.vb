@@ -24,12 +24,12 @@ Public Class Form1
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         connection = New SqlConnection
-        connection.ConnectionString = "sever=localhost;database=heolloworld;integrated security = true"
+        connection.ConnectionString = "server=(local);database=helloworld;integrated security = true"
         connection.Open()
-        cmd = New SqlCommand("SELECT password FROM Patient WHERE ID=" + Trim(TextBox1.Text))
+        cmd = New SqlCommand("SELECT password FROM Patient WHERE P_ID = " + Trim(TextBox1.Text))
         cmd.Connection = connection
-        Dim pass = cmd.ExecuteScalar()
-        If pass.Equals(TextBox2.Text) Then
+        Dim pass = Str(cmd.ExecuteScalar())
+        If pass.Equals(Str(TextBox2.Text)) Then
             MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Hide()
             Form4.Show()
