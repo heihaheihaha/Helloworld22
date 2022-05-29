@@ -15,6 +15,7 @@ Public Class Form2
         Dim dset As New DataSet()
         dsDA.Fill(dset, "helloworld")
         DataGridView1.DataSource = dset
+        DataGridView1.DataMember = "helloworld"
         connection.Close()
         connection.Dispose()
         connection = Nothing

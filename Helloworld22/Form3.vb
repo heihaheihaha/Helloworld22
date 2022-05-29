@@ -31,7 +31,7 @@ Public Class Form3
             If Str(cmd.ExecuteScalar()) = Str(TextBox2.Text) Then
                 MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Hide()
-                Form4.Show()
+                Form2.Show()
                 connection.Close()
                 connection.Dispose()
             Else
