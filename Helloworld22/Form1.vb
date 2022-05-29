@@ -30,8 +30,9 @@ Public Class Form1
         dsDA.SelectCommand.CommandText = $"SELECT PASSWORD FROM Patient WHERE P_ID = " + TextBox1.Text
         Dim dset As New DataSet()
         dsDA.Fill(dset, "helloworld")
-
-
+        sqlcn.Close()
+        sqlcn.Dispose()
+        sqlcn = Nothing
     End Sub
 
     Public Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -49,11 +50,6 @@ Public Class Form1
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
 
     End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
-
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
         Form3.Show()
         Me.Hide()
