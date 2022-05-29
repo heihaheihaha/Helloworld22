@@ -23,22 +23,36 @@ Public Class Form1
 
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If TextBox1.Text = "" Then
+            Label4.Visible = 1
+            Return
+        End If
+
+        If TextBox2.Text = "" Then
+            Label5.Visible = 1
+            Return
+        End If
         connection = New SqlConnection
         connection.ConnectionString = "server=(local);database=helloworld;integrated security = true"
         connection.Open()
-        cmd = New SqlCommand("SELECT password FROM Patient WHERE P_ID = " + Trim(TextBox1.Text))
+        cmd = New SqlCommand("SELECT password FROM Patient WHERE P_ID = " + "'" + Trim(TextBox1.Text) + "'")
         cmd.Connection = connection
-        Dim pass As String = cmd.ExecuteScalar()
-
-
-        If pass.Equals(Str(TextBox2.Text)) Then
-            MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Hide()
-            Form4.Show()
-            connection.Close()
-            connection.Dispose()
+        'when it's null ExecuteScalar() will return Nothing
+        If cmd.ExecuteScalar() = Nothing Then
+            Dim dalg As DialogResult = MessageBox.Show("请检查用户名", "用户名异常", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+            If dalg = Windows.Forms.DialogResult.Retry Then
+                TextBox1.Text = ""
+            End If
         Else
-            MessageBox.Show("密码错误", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If Str(cmd.ExecuteScalar()) = Str(TextBox2.Text) Then
+                MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Hide()
+                Form4.Show()
+                connection.Close()
+                connection.Dispose()
+            Else
+                MessageBox.Show("密码错误", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 

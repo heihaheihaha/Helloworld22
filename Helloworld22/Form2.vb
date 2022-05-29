@@ -14,6 +14,7 @@ Public Class Form2
         dsDA.SelectCommand.CommandText = $"SELECT Drug AS 药品名称,describe as 描述,price AS 定价,id FROM Drug"
         Dim dset As New DataSet()
         dsDA.Fill(dset, "helloworld")
+        DataGridView1.DataSource = dset
         connection.Close()
         connection.Dispose()
         connection = Nothing
