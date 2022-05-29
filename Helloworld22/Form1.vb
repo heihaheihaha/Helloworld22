@@ -28,7 +28,9 @@ Public Class Form1
         connection.Open()
         cmd = New SqlCommand("SELECT password FROM Patient WHERE P_ID = " + Trim(TextBox1.Text))
         cmd.Connection = connection
-        Dim pass = Str(cmd.ExecuteScalar())
+        Dim pass As String = cmd.ExecuteScalar()
+
+
         If pass.Equals(Str(TextBox2.Text)) Then
             MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Hide()
