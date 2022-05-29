@@ -62,6 +62,7 @@ Partial Class Form1
         '
         'TextBox1
         '
+        Me.TextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TextBox1.Location = New System.Drawing.Point(232, 153)
         Me.TextBox1.Name = "TextBox1"
@@ -82,7 +83,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Help
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label3.ForeColor = System.Drawing.SystemColors.Highlight
         Me.Label3.Location = New System.Drawing.Point(458, 308)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(100, 24)
@@ -126,6 +127,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)

@@ -1,8 +1,9 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class Form1
-    Dim sqlcn As New SqlConnection
-    Dim sqlcmd As SqlCommand
+    Dim connection As New SqlConnection
+    Dim cmd As SqlCommand
+
     Private Sub Form1_load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
         '另一种实现窗体居中的方法
@@ -19,20 +20,24 @@ Public Class Form1
         '    Dim y = r.Top + (r.Height - frm.Height) \ 2
         '    frm.Location = New Point(x, y)
         'End Sub
+
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        sqlcn = New SqlConnection()
-        sqlcn.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
-        sqlcn.Open()
-        Dim dsDA As New SqlDataAdapter()
-        dsDA.SelectCommand = New SqlCommand()
-        dsDA.SelectCommand.Connection = sqlcn
-        dsDA.SelectCommand.CommandText = $"SELECT PASSWORD FROM Patient WHERE P_ID = " + TextBox1.Text
-        Dim dset As New DataSet()
-        dsDA.Fill(dset, "helloworld")
-        sqlcn.Close()
-        sqlcn.Dispose()
-        sqlcn = Nothing
+        connection = New SqlConnection
+        connection.ConnectionString = "sever=localhost;database=heolloworld;integrated security = true"
+        connection.Open()
+        cmd = New SqlCommand("SELECT password FROM Patient WHERE ID=" + Trim(TextBox1.Text))
+        cmd.Connection = connection
+        Dim pass = cmd.ExecuteScalar()
+        If pass.Equals(TextBox2.Text) Then
+            MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Hide()
+            Form4.Show()
+            connection.Close()
+            connection.Dispose()
+        Else
+            MessageBox.Show("密码错误", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
     Public Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged

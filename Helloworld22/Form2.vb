@@ -3,7 +3,6 @@
 Public Class Form2
     Dim connection As New SqlConnection
     Dim sqlcmd As SqlCommand
-
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
         connection = New SqlConnection()
