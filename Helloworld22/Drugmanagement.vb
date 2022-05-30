@@ -9,12 +9,12 @@ Public Class Drugmanagement
         connection = New SqlConnection()
         connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
         connection.Open()
-        Dim dsDA As New SqlDataAdapter()
-        dsDA.SelectCommand = New SqlCommand()
-        dsDA.SelectCommand.Connection = connection
-        dsDA.SelectCommand.CommandText = $"SELECT * FROM Drug"
+        Dim dsDa As New SqlDataAdapter()
+        dsDa.SelectCommand = New SqlCommand()
+        dsDa.SelectCommand.Connection = connection
+        dsDa.SelectCommand.CommandText = $"SELECT * FROM Drug"
         Dim dset As New DataSet()
-        dsDA.Fill(dset, "helloworld")
+        dsDa.Fill(dset, "helloworld")
         DataGridView1.DataSource = dset
         DataGridView1.DataMember = "helloworld"
         connection.Close()
@@ -73,15 +73,38 @@ Public Class Drugmanagement
             connection.Close()
             connection.Dispose()
         Else
-            connection = New SqlConnection()
-            connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
-            connection.Open()
-            cmd = "DELETE FROM Drug WHERE Drug_name = '" + TextBox1.Text + "'"
-            adapter.SelectCommand = New SqlCommand(cmd, connection)
-            adapter.SelectCommand.ExecuteNonQuery()
-            connection.Close()
-            connection.Dispose()
-            connection = Nothing
+            Dim dalg2 As DialogResult = MessageBox.Show("请确认将要删除的药品名：" + TextBox1.Text, "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+            If dalg2 = DialogResult.OK Then
+                connection = New SqlConnection()
+                connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
+                connection.Open()
+                cmd = "DELETE FROM Drug WHERE Drug_name = '" + TextBox1.Text + "'"
+                adapter.SelectCommand = New SqlCommand(cmd, connection)
+                adapter.SelectCommand.ExecuteNonQuery()
+                connection.Close()
+                connection.Dispose()
+                connection = Nothing
+            End If
+            If dalg2 = DialogResult.Cancel Then
+                Return
+            End If
         End If
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        connection = New SqlConnection()
+        connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
+        connection.Open()
+        cmd = "DELETE FROM Drug WHERE Drug_name = like'%" + TextBox1.Text + "%'"
+        adapter.SelectCommand = New SqlCommand(cmd, connection)
+        If adapter.SelectCommand.ExecuteScalar() = Nothing Then
+            Label4.Visible = 0
+        Else
+            Label4.Text = adapter.SelectCommand.ExecuteScalar()
+            Label4.Visible = 1
+        End If
+        connection.Close()
+        connection.Dispose()
+        connection = Nothing
     End Sub
 End Class
