@@ -22,27 +22,44 @@ Partial Class Form2
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(1, -1)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 62
         Me.DataGridView1.RowTemplate.Height = 32
         Me.DataGridView1.Size = New System.Drawing.Size(488, 355)
         Me.DataGridView1.TabIndex = 0
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'Label1
+        '
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label1.Location = New System.Drawing.Point(645, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(143, 36)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "录入药品信息->"
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
-        Me.ForeColor = System.Drawing.Color.LightBlue
+        Me.ForeColor = System.Drawing.Color.Black
         Me.Name = "Form2"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "处方"
@@ -52,4 +69,6 @@ Partial Class Form2
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label1 As Label
 End Class

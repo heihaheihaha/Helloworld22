@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class Drugmamagement
+Public Class Drugmanagement
     Dim connection As New SqlConnection
     Private Sub Drugmamagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
@@ -17,5 +17,23 @@ Public Class Drugmamagement
         connection.Close()
         connection.Dispose()
         connection = Nothing
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim dalg As DialogResult
+        MessageBox.Show("确认提交？", "提交", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)
+        If dalg = DialogResult.OK Then
+            connection = New SqlConnection()
+            connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
+            connection.Open()
+
+            connection.Close()
+            connection.Dispose()
+            connection = Nothing
+        End If
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
     End Sub
 End Class

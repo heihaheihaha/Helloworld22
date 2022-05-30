@@ -19,7 +19,7 @@ Public Class Form4
         connection.Dispose()
         connection = Nothing
     End Sub
-
+    '刷新
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         connection = New SqlConnection()
         connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
