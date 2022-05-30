@@ -11,7 +11,7 @@ Public Class Form2
         Dim dsDA As New SqlDataAdapter()
         dsDA.SelectCommand = New SqlCommand()
         dsDA.SelectCommand.Connection = connection
-        dsDA.SelectCommand.CommandText = $"SELECT Drug AS 药品名称,describe as 描述,price AS 定价,id FROM Drug"
+        dsDA.SelectCommand.CommandText = "SELECT * FROM Drug"
         Dim dset As New DataSet()
         dsDA.Fill(dset, "helloworld")
         DataGridView1.DataSource = dset
@@ -27,5 +27,9 @@ Public Class Form2
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         Drugmanagement.Show()
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
     End Sub
 End Class
