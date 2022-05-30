@@ -32,6 +32,7 @@ Partial Class Drugmanagement
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,7 +48,7 @@ Partial Class Drugmanagement
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(889, 293)
+        Me.Button1.Location = New System.Drawing.Point(875, 265)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(128, 47)
         Me.Button1.TabIndex = 1
@@ -56,6 +57,7 @@ Partial Class Drugmanagement
         '
         'TextBox1
         '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox1.Location = New System.Drawing.Point(94, 273)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(415, 30)
@@ -72,6 +74,7 @@ Partial Class Drugmanagement
         '
         'TextBox2
         '
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox2.Location = New System.Drawing.Point(94, 313)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(415, 30)
@@ -107,7 +110,7 @@ Partial Class Drugmanagement
         '
         Me.Button2.ForeColor = System.Drawing.Color.Red
         Me.Button2.Image = Global.Helloworld22.My.Resources.Resources._cd2dc242d5915e7
-        Me.Button2.Location = New System.Drawing.Point(889, 352)
+        Me.Button2.Location = New System.Drawing.Point(875, 373)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(128, 50)
         Me.Button2.TabIndex = 8
@@ -124,12 +127,24 @@ Partial Class Drugmanagement
         Me.Label4.Text = "提示"
         Me.Label4.Visible = False
         '
+        'Button3
+        '
+        Me.Button3.Image = Global.Helloworld22.My.Resources.Resources._cd2dc242d5915e7
+        Me.Button3.Location = New System.Drawing.Point(875, 320)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(128, 47)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "修改"
+        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
+        '
         'Drugmanagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1094, 468)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label3)
@@ -159,4 +174,5 @@ Partial Class Drugmanagement
     Friend WithEvents Label3 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Label4 As Label
+    Friend WithEvents Button3 As Button
 End Class
