@@ -36,7 +36,7 @@ Partial Class Form2
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 62
         Me.DataGridView1.RowTemplate.Height = 32
-        Me.DataGridView1.Size = New System.Drawing.Size(488, 355)
+        Me.DataGridView1.Size = New System.Drawing.Size(386, 355)
         Me.DataGridView1.TabIndex = 0
         '
         'Timer1
@@ -46,9 +46,9 @@ Partial Class Form2
         'Label1
         '
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Label1.Location = New System.Drawing.Point(645, 9)
+        Me.Label1.Location = New System.Drawing.Point(512, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(143, 36)
+        Me.Label1.Size = New System.Drawing.Size(181, 36)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "录入药品信息->"
         '

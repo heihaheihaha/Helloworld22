@@ -44,6 +44,9 @@ Public Class Form3
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        MessageBox.Show("请联系管理员解决", "忘记密码？", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+        Dim dalg As DialogResult = MessageBox.Show("请联系管理员解决", "忘记密码？", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+        If dalg = DialogResult.Yes Then
+            MessageBox.Show("3520225523@qq.com", "请发送邮件至", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 End Class

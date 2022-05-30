@@ -11,7 +11,7 @@ Public Class Form2
         Dim dsDA As New SqlDataAdapter()
         dsDA.SelectCommand = New SqlCommand()
         dsDA.SelectCommand.Connection = connection
-        dsDA.SelectCommand.CommandText = "SELECT * FROM Drug"
+        dsDA.SelectCommand.CommandText = "SELECT Drug_name as 名称,describe as 描述 FROM Drug"
         Dim dset As New DataSet()
         dsDA.Fill(dset, "helloworld")
         DataGridView1.DataSource = dset
@@ -20,11 +20,6 @@ Public Class Form2
         connection.Dispose()
         connection = Nothing
     End Sub
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Label1.Text = TimeOfDay
-    End Sub
-
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         Drugmanagement.Show()
     End Sub
