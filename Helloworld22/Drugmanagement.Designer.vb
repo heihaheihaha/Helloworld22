@@ -30,6 +30,7 @@ Partial Class Drugmanagement
         Me.Label2 = New System.Windows.Forms.Label()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,7 +46,7 @@ Partial Class Drugmanagement
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(954, 409)
+        Me.Button1.Location = New System.Drawing.Point(576, 276)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(128, 47)
         Me.Button1.TabIndex = 1
@@ -101,12 +102,24 @@ Partial Class Drugmanagement
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "描述："
         '
+        'Button2
+        '
+        Me.Button2.ForeColor = System.Drawing.Color.Red
+        Me.Button2.Image = Global.Helloworld22.My.Resources.Resources._cd2dc242d5915e7
+        Me.Button2.Location = New System.Drawing.Point(576, 352)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(128, 50)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "删除"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Drugmanagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1094, 468)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label2)
@@ -132,4 +145,5 @@ Partial Class Drugmanagement
     Friend WithEvents Label2 As Label
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Button2 As Button
 End Class

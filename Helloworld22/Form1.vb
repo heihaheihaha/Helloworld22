@@ -46,7 +46,7 @@ Public Class Form1
         Else
             If Str(cmd.ExecuteScalar()) = Str(TextBox2.Text) Then
                 MessageBox.Show("登录成功", "Imformation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.Hide()
+                Hide()
                 Form4.Show()
                 connection.Close()
                 connection.Dispose()

@@ -2,9 +2,10 @@
 Public Class Drugmanagement
     Dim connection As New SqlConnection
     Dim cmd As String
+    Dim cmm As SqlCommand
     Dim adapter As New SqlDataAdapter
     Private Sub Drugmamagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.CenterToScreen()
+        CenterToScreen()
         connection = New SqlConnection()
         connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
         connection.Open()
@@ -29,7 +30,7 @@ Public Class Drugmanagement
                 connection = New SqlConnection()
                 connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
                 connection.Open()
-                cmd = "INSERT INTO Drug VALUES ( ' " + Trim(TextBox1.Text) + "','" + RichTextBox1.Text + "'," & TextBox2.Text & ")"
+                cmd = "INSERT INTO Drug VALUES ( '" + Trim(TextBox1.Text) + "','" + RichTextBox1.Text + "'," & TextBox2.Text & ")"
                 adapter.SelectCommand = New SqlCommand(cmd, connection)
                 adapter.SelectCommand.ExecuteNonQuery()
                 connection.Close()
@@ -57,6 +58,30 @@ Public Class Drugmanagement
             End If
         Else
             MessageBox.Show("请键入有效的数字")
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        connection = New SqlConnection
+        connection.ConnectionString = "server=(local);database=helloworld;integrated security = true"
+        connection.Open()
+        cmm = New SqlCommand("SELECT Drug_name FROM drug WHERE Drug_name = '" + TextBox1.Text + "'")
+        cmm.Connection = connection
+        'when it's null ExecuteScalar() will return Nothing
+        If cmm.ExecuteScalar() = Nothing Then
+            Dim adlg As DialogResult = MessageBox.Show("该药品不在库中", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            connection.Close()
+            connection.Dispose()
+        Else
+            connection = New SqlConnection()
+            connection.ConnectionString = "server=(local);database=Helloworld;Integrated Security=True"
+            connection.Open()
+            cmd = "DELETE FROM Drug WHERE Drug_name = '" + TextBox1.Text + "'"
+            adapter.SelectCommand = New SqlCommand(cmd, connection)
+            adapter.SelectCommand.ExecuteNonQuery()
+            connection.Close()
+            connection.Dispose()
+            connection = Nothing
         End If
     End Sub
 End Class
