@@ -48,6 +48,7 @@ Partial Class Drugmanagement
         '
         'Button1
         '
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Button1.Location = New System.Drawing.Point(875, 265)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(128, 47)

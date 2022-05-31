@@ -27,6 +27,7 @@ Partial Class Menu
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -80,12 +81,23 @@ Partial Class Menu
         Me.LinkLabel4.TabStop = True
         Me.LinkLabel4.Text = "帮助\开发者信息"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label2.Location = New System.Drawing.Point(592, 222)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(67, 24)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Label2"
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LinkLabel4)
         Me.Controls.Add(Me.LinkLabel3)
         Me.Controls.Add(Me.LinkLabel2)
@@ -104,4 +116,5 @@ Partial Class Menu
     Friend WithEvents LinkLabel2 As LinkLabel
     Friend WithEvents LinkLabel3 As LinkLabel
     Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents Label2 As Label
 End Class

@@ -22,8 +22,11 @@ Partial Class Form4
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -48,19 +51,35 @@ Partial Class Form4
         Me.DataGridView1.Size = New System.Drawing.Size(800, 450)
         Me.DataGridView1.TabIndex = 0
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(679, 419)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(61, 31)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "打印"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 60000
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "Form4"
-        Me.Text = "Form4"
+        Me.Text = "药品清单"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Button1 As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Timer1 As Timer
 End Class
