@@ -1,6 +1,7 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class Form1
+    Dim _id As String
     Dim connection As New SqlConnection
     Dim cmd As SqlCommand
 
@@ -62,6 +63,7 @@ Public Class Form1
     Public Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         'Label4 的可见性
         Dim str As String
+        _id = TextBox1.Text
         str = TextBox1.Text
         If str.Length() > 6 Then Label4.Visible = 1 Else Label4.Visible = 0
     End Sub

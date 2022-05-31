@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <StartupObject>Helloworld22.Form1</StartupObject>
+    <StartupObject>Helloworld22.Menu</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <SignAssembly>false</SignAssembly>

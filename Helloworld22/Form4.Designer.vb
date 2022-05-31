@@ -22,10 +22,19 @@ Partial Class Form4
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(736, 419)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(64, 31)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "刷新"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -38,15 +47,6 @@ Partial Class Form4
         Me.DataGridView1.RowTemplate.Height = 32
         Me.DataGridView1.Size = New System.Drawing.Size(800, 450)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(736, 419)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(64, 31)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "刷新"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form4
         '
@@ -61,7 +61,6 @@ Partial Class Form4
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button1 As Button
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

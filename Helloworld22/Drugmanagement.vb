@@ -24,7 +24,7 @@ Public Class Drugmanagement
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim intValue As Integer
         If Integer.TryParse(TextBox2.Text, intValue) Then
-            Dim dalg As DialogResult = MessageBox.Show("确认提交？", "提交", MessageBoxButtons.OKCancel,
+            Dim dalg = MessageBox.Show("确认提交？", "提交", MessageBoxButtons.OKCancel,
                                                        MessageBoxIcon.Exclamation)
             If dalg = DialogResult.OK Then
                 _connection = New SqlConnection()
