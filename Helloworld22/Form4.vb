@@ -29,7 +29,7 @@ Public Class Form4
         Dim dsDA As New SqlDataAdapter()
         dsDA.SelectCommand = New SqlCommand()
         dsDA.SelectCommand.Connection = connection
-        dsDA.SelectCommand.CommandText = $"SELECT * FROM Drug_use"
+        dsDA.SelectCommand.CommandText = "SELECT * FROM Drug_use WHERE P_ID = '" + Form1.TextBox1.Text + "'"
         Dim dset As New DataSet()
         dsDA.Fill(dset, "helloworld")
         DataGridView1.DataSource = dset
